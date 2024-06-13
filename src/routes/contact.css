@@ -1,0 +1,10 @@
+.section-hed{
+    font-size: 3rem;
+    color: #222;
+
+}
+.c-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

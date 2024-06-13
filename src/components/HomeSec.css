@@ -1,0 +1,45 @@
+.section{
+    margin: 2rem 5rem;    
+}
+.section h1{
+    font-size: 2.5rem;
+}
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btn-group button {
+    background-color: #fff; /* Green background */
+    border: 1px solid #222; 
+    border-radius: 8px;
+    color: #222; /* White text */
+    font-weight: 600;
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */    
+}
+  .btn-group button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+  .btn-group button:not(:first-child) {
+    border-left: none; /* Prevent double borders */
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+}
+.btn-group button:hover {
+    background-color: #01959a;
+    color: #fff;
+}
+.btn-group button .act:active{
+    background-color: #01959a;
+}  
+.flexbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
