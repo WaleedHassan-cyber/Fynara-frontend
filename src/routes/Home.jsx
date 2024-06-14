@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
+
 import Navbar from "../components/Navbar";
-import Hero from '../components/Hero';
-import HomeSec from '../components/HomeSec';
+import Hero from "../components/Hero";
+import HomeSec from "../components/HomeSec";
 import Footer from "../components/Footer";
+import Curtains from "../components/Curtains";
 const Home = () => {
   return (
     <>
-    <Navbar />
-        <Hero 
+      <Navbar />
+      <Hero
         cName="hero"
         heroImg="https://images.pexels.com/photos/1127000/pexels-photo-1127000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         title="Unleash Your Inner Fashionista"
@@ -15,13 +17,11 @@ const Home = () => {
         btntext="Shop"
         btnClass="show"
         url="/"
-
-        /> 
-          <HomeSec/>
-          <Footer/>
-
+      />
+      <HomeSec />
+      <Footer />
     </>
- )
-}
+  );
+};
 
-export default Home
+export default Home;

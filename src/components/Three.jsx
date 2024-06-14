@@ -1,31 +1,9 @@
-import React from "react";
-import { useState } from "react";
-import "./HomeSec.css";
-import Curtains from "./Curtains";
-import Three from "./Three";
-
-const HomeSec = () => {
-  const [showComponent, setShowComponent] = useState('ComponentA');
-
-  const handleButtonClick = (componentName) => {
-    setShowComponent(componentName);
-  };
+import React from 'react'
+import ProductCard from './ProductCard'
+const Three = () => {
   return (
     <>
-      <div className="section">
-        <h1>New Arrivals</h1>
-        <div className="btn-group">
-          <button onClick={() => handleButtonClick('ComponentA')}>3 pc suit</button>
-          <button onClick={() => handleButtonClick('ComponentB')}>Curtains</button>
-          <button>Sofas</button>
-        </div>
-      </div>
-        <div className="flexbox">
-        {showComponent === 'ComponentA' && <Three/>}
-        {showComponent === 'ComponentB' && <Curtains/>}
-      </div>
-      {/* <div className="flexbox">
-        <ProductCard
+    <ProductCard
           badge="Hot"
           src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=1383&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           pc="Vallentine Frok"
@@ -81,10 +59,9 @@ const HomeSec = () => {
           sprice="Rs4000"
           oprice="Rs3400"
         />
-      </div> */}
       
     </>
-  );
-};
+  )
+}
 
-export default HomeSec;
+export default Three
