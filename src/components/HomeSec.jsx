@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./HomeSec.css";
 import Curtains from "./Curtains";
 import Three from "./Three";
+import Sofas from "./Sofas";
 
 const HomeSec = () => {
   const [showComponent, setShowComponent] = useState('ComponentA');
@@ -17,12 +18,13 @@ const HomeSec = () => {
         <div className="btn-group">
           <button onClick={() => handleButtonClick('ComponentA')}>3 pc suit</button>
           <button onClick={() => handleButtonClick('ComponentB')}>Curtains</button>
-          <button>Sofas</button>
+          <button onClick={() => handleButtonClick('ComponentC')}>Sofas</button>
         </div>
       </div>
         <div className="flexbox">
         {showComponent === 'ComponentA' && <Three/>}
         {showComponent === 'ComponentB' && <Curtains/>}
+        {showComponent === 'ComponentC' && <Sofas/>}
       </div>
       {/* <div className="flexbox">
         <ProductCard

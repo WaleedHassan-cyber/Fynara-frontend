@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import HomeSec from "../components/HomeSec";
 import Footer from "../components/Footer";
-import Curtains from "../components/Curtains";
+;
 const Home = () => {
   return (
     <>
@@ -16,7 +16,7 @@ const Home = () => {
         text="Choose Your Favourite Dress"
         btntext="Shop"
         btnClass="show"
-        url="/"
+        url="/products"
       />
       <HomeSec />
       <Footer />

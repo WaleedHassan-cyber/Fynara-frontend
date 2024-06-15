@@ -10,7 +10,7 @@ const Hero = (props) => {
           alt="HeroImage"
         />
         <div className="hero-text">
-          <h1>{props.title}</h1>
+          <h1 className={props.ctitle}>{props.title}</h1>
           <p>{props.text}</p>
           <a href={props.url} className={props.btnClass}>
             {props.btntext}

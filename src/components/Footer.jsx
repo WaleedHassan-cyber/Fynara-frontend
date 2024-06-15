@@ -18,7 +18,7 @@ const Footer = () => {
             <a href="">
               <i className="fa-brands fa-instagram "></i>
             </a>
-            <a href="">
+            <a href="https://wa.me/+923268597887">
               <i className="fa-brands fa-whatsapp "></i>
             </a>
           </div>
@@ -41,7 +41,6 @@ const Footer = () => {
           <div>
             <h4>Help</h4>
             <a href="">Support</a>
-            <a href="">Troubleshooting</a>
             <a href="">Contact US</a>
           </div>
           <div>

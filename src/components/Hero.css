@@ -8,6 +8,11 @@
     height: 90vh;
     position: relative;
 }
+ .hero-mid .contact{          /* ye srf text ko card ke upe lany ke liye ha cntct section ki pic m */
+    padding-right: 18rem;
+    padding-top: 2rem !important;
+    background-color: #222;
+}
 .hero-mid h1{
     padding-top: 4rem !important;
 }
@@ -48,6 +53,10 @@ img{
     color:#222;
 
 }
+.hero-text .show:hover{
+    background-color: #01959a;
+    color: #fff;
+}
 .hero-text .hide{
     display: none;
 }
@@ -63,6 +72,14 @@ img{
         padding: .6rem 1.1rem;
         border-radius: 6px;
         font: 1.1rem;
+    }
+    .hero-mid .contact{            /* ye srf text ko sai krny k liye ha cntct sec ki picka jo title ha wo */
+        font-size: 3rem;
+        font-weight: 800;
+        background: #fff;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-right: 0;
     }
     
 }

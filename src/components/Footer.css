@@ -1,6 +1,7 @@
 .footer{
     padding: 4rem 6rem;
-    background: #000;
+    /* background: #000; */
+    background: #343434eb;
     color: #fff;
 }
 .top{
