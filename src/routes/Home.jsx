@@ -12,7 +12,7 @@ const Home = () => {
       <Hero
         cName="hero"
         heroImg="https://img.freepik.com/premium-photo/black-friday-sale-decoration-background-with-shopping-trolley-copy-space_257995-187.jpg?w=900"
-        title="Unleash Your Inner Fashionista"
+        title="Smarter Shopping Starts Here"
         text="Choose Your Favourite Product"
         btntext="Shop"
         btnClass="show"

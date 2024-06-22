@@ -11,6 +11,7 @@ const Product = () => {
         cName="hero-mid"
         heroImg="https://img.freepik.com/premium-photo/bag-made-from-paper_101448-780.jpg?w=740"
         title="Products"
+        text="Shop🛒. Smile😊. Repeat❤"
         btnClass="hide"
       />
       <Footer/>
