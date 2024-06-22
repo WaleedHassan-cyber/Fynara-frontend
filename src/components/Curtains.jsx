@@ -7,7 +7,7 @@ const Curtains = () => {
           badge="Hot"
           src="src/assets/Cutain1.jpeg"
           pc="Valvet Curtain"
-          pa="Blue with Black Color"
+          pa="Blue Velvet"
           sprice="Rs4000"
           oprice="Rs3400"
         />
