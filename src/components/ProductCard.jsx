@@ -24,7 +24,7 @@ const ProductCard = (props) => {
                 <a href="">
                   <i className="fa fa-heart"></i>
                 </a>
-                <a href="https://wa.me/+923268597887">
+                <a href={props.num}>
                   <i className="fa-brands fa-whatsapp"></i>
                 </a>
               </div>
@@ -37,5 +37,5 @@ const ProductCard = (props) => {
     </>
   );
 };
-
+// https://wa.me/+923268597887"
 export default ProductCard;
