@@ -53,7 +53,6 @@ const AboutUs = () => {
               <div>
                 <h1>Our Vision</h1>
                 <p>
-                  {" "}
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Aperiam repellat recusandae lorem50
                 </p>
