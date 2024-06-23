@@ -10,19 +10,19 @@ const OurProducts = () => {
 
       <div className="hero-section">
         <div className="card-grid">
-          <a className="card" href="#">
+          <a className="card1" href="#">
             <div className="card__background one"></div>
             <div className="card__content">
               <h3 className="card__heading">Women Dress</h3>
             </div>
           </a>
-          <a className="card" href="#">
+          <a className="card1" href="#">
             <div className="card__background two"></div>
             <div className="card__content">
               <h3 className="card__heading">Curtains And Blinds</h3>
             </div>
           </a>
-          <a className="card" href="#">
+          <a className="card1" href="#">
             <div className="card__background three"></div>
             <div className="card__content">
               <h3 className="card__heading">Sofas</h3>
