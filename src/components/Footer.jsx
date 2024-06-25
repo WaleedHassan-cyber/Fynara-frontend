@@ -15,7 +15,7 @@ const Footer = () => {
             <a href="">
               <i className="fa-brands fa-facebook "></i>
             </a>
-            <a href="">
+            <a href="http://www.instagram.com/B_D1206">
               <i className="fa-brands fa-instagram "></i>
             </a>
             <a href="https://wa.me/+923268597887">
