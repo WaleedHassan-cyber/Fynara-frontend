@@ -9,8 +9,8 @@
     position: relative;
 }
  .hero-mid .contact{          /* ye srf text ko card ke upe lany ke liye ha cntct section ki pic m */
-    padding-right: 18rem;
-    padding-top: 2rem !important;
+    padding-right: 22rem;
+    padding-top: 0rem !important;
     background-color: #222;
 }
 .hero-mid h1{
