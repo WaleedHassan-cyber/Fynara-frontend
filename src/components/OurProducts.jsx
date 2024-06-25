@@ -1,5 +1,6 @@
 import React from "react";
 import "./OurProducts.css";
+import { Link } from "react-router-dom";
 const OurProducts = () => {
   return (
     <>
@@ -10,24 +11,24 @@ const OurProducts = () => {
 
       <div className="hero-section">
         <div className="card-grid">
-          <a className="card1" href="#">
+          <Link className="card1" to="/">
             <div className="card__background one"></div>
             <div className="card__content">
-              <h3 className="card__heading">Women Dress</h3>
+              <h3 className="card__heading">For Women</h3>
             </div>
-          </a>
-          <a className="card1" href="#">
+          </Link>
+          <Link className="card1" to="/">
             <div className="card__background two"></div>
             <div className="card__content">
               <h3 className="card__heading">Curtains And Blinds</h3>
             </div>
-          </a>
-          <a className="card1" href="#">
+          </Link>
+          <Link className="card1" to="/">
             <div className="card__background three"></div>
             <div className="card__content">
               <h3 className="card__heading">Sofas</h3>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </>

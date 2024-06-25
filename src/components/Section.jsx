@@ -14,13 +14,14 @@ const Section = () => {
           <div className="sec-text">
             <h2>Easy To contact Us</h2>
             <p>
-              we always ready to help by providing the best products for you.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequatur, non. Lorem, ipsum dolor. Lorem ipsum, dolor sit amet
-              consectetur adipisicing elit. Modi magni, pariatur impedit nisi id
-              corrupti error tempore dolor ducimus excepturi itaque
-              exercitationem atque fugit ullam in voluptates quidem ratione
-              esse.
+              We always ready to help by providing the best products for you. We
+              value your feedback and are here to assist you with any questions
+              or concerns you may have. Whether you need support, have a
+              suggestion, or simply want to learn more about our services, our
+              team is ready to help. Reach out to us directly via phone or
+              email, and we strive to respond to all inquiries within 24 hours.
+              Thank you for getting in touch with us; we look forward to
+              connecting with you soon.
             </p>
           </div>
           <div className="cards">

@@ -17,7 +17,7 @@ const HomeSec = () => {
         <h1>New Arrivals</h1>
         <div className="btn-group">
           <button onClick={() => handleButtonClick('ComponentA')}>3 pc suit</button>
-          <button onClick={() => handleButtonClick('ComponentB')}>Curtains</button>
+          <button  onClick={() => handleButtonClick('ComponentB')}>Curtains</button>
           <button onClick={() => handleButtonClick('ComponentC')}>Sofas</button>
         </div>
       </div>
