@@ -5,7 +5,7 @@ const Curtains = () => {
     <>
       <ProductCard
         badge="Hot"
-        src="src/assets/Cutain1.jpeg"
+        src="src/assets/Cutain1.png"
         pc="Valvet Curtain"
         pa="Blue Velvet"
         sprice="Rs4000"
