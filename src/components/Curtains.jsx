@@ -15,7 +15,7 @@ const Curtains = () => {
             pa="Blue Velvet"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -24,7 +24,7 @@ const Curtains = () => {
             pa="Lime On Green"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -33,7 +33,7 @@ const Curtains = () => {
             pa="Black on Gray"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -42,7 +42,7 @@ const Curtains = () => {
             pa="Black and Gray"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -51,7 +51,7 @@ const Curtains = () => {
             pa="Curtains and blind"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -60,7 +60,7 @@ const Curtains = () => {
             pa="Curtains and blind"
             sprice="Rs4000"
             oprice="Rs3400"
-            num="https://wa.me/+923457008001"
+            num="https://wa.me/+923268597887"
           />
         </div>
       </div>

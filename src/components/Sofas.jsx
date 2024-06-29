@@ -13,6 +13,7 @@ const Sofas = () => {
             pa="Pure red dress"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -21,6 +22,7 @@ const Sofas = () => {
             pa="Pure red dress"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
         </div>
       </div>

@@ -15,6 +15,7 @@ const Three = () => {
             pa="Pure red dress"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="40% OFF"
@@ -23,6 +24,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -31,6 +33,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -39,6 +42,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -47,6 +51,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -55,6 +60,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
           <ProductCard
             badge="Hot"
@@ -63,6 +69,7 @@ const Three = () => {
             pa="Women lether Bag"
             sprice="Rs4000"
             oprice="Rs3400"
+            num="https://wa.me/+923268597887"
           />
         </div>
         </div>

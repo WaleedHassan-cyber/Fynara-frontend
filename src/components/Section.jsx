@@ -30,14 +30,14 @@ const Section = () => {
                 title="Chat"
                 description="03268597887"
                 buttonText="Chat Now"
-                link="/"
+                link="https://wa.me/+923268597887"
                 Icon="fa-brands fa-whatsapp"
               />
               <Card
                 title="Video Call"
                 description="03268597887"
                 buttonText="Call Now"
-                link="/"
+                link="https://wa.me/+923268597887"
                 Icon="fa-solid fa-video"
               />
             </div>
@@ -46,14 +46,14 @@ const Section = () => {
                 title="Call"
                 description="03268597887"
                 buttonText="Call Now"
-                link="/"
+                link="tel:+923068597887"
                 Icon="fa-solid fa-phone"
               />
               <Card
                 title="Message"
                 description="03268597887"
                 buttonText="Message Now"
-                link="/"
+                link="sms:+923268597887"
                 Icon="fa-regular fa-message"
               />
             </div>
