@@ -5,6 +5,7 @@ import Curtains from "./Curtains";
 import Three from "./Three";
 import Sofas from "./Sofas";
 
+
 const HomeSec = () => {
   const [showComponent, setShowComponent] = useState('ComponentA');
 

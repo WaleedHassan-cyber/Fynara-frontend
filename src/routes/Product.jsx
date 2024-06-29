@@ -4,6 +4,8 @@ import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import OurProducts from "../components/OurProducts";
 
+
+
 const Product = () => {
   return (
     <>
@@ -16,7 +18,7 @@ const Product = () => {
         btnClass="hide"
       />
       <OurProducts/>
-      <Footer/>
+      <Footer />
     </>
   );
 };
