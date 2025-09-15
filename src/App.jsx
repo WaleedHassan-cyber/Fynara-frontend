@@ -4,7 +4,6 @@ import About from "./routes/About";
 import Product from "./routes/Product";
 import Contact from "./routes/Contact";
 import "./App.css";
-import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Hero from "./components/Hero.jsx";
 import ProductDetail from "./components/ProductDetails.jsx";
@@ -14,7 +13,6 @@ function App() {
   return (
     <>
       <div className="App">
-        {/* <Navbar/> */}
         <Hero />
         <Routes>
           <Route path="/" element={<Home />} />
