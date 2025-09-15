@@ -38,17 +38,17 @@ const Hero = () => {
 
           {/* Navigation */}
           <nav className="nav">
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
             <div className="relative">
-              <a href="/products" className="shop-link">
+              <Link to="/products" className="shop-link">
                 Shop
                 <span className="hot">HOT</span>
-              </a>
+              </Link>
             </div>
-            <a href="#">Features</a>
-            <a href="#">Blog</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <Link to="#">Features</Link>
+            <Link to="#">Blog</Link>
+            <Link to="#">About</Link>
+            <Link to="#">Contact</Link>
           </nav>
 
           {/* Right Side */}

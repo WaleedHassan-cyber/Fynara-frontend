@@ -1,10 +1,11 @@
 import React from 'react'
 import "./Breadcrumb.css"
+import { Link } from 'react-router-dom'
 const Breadcrumb = ({crumb}) => {
   return (
     <>
     <div className="breadcrumb">
-        <a href="/" className="home-link">
+        <Link to="/" className="home-link">
           <svg
             className="home-icon"
             fill="currentColor"
@@ -15,7 +16,7 @@ const Breadcrumb = ({crumb}) => {
             <path d="M10 2L2 9h2v9h5V13h2v5h5V9h2L10 2z" />
           </svg>
           Home
-        </a>
+        </Link>
         <span className="separator">&gt;</span>
         <span className="current">{crumb}</span>
       </div>

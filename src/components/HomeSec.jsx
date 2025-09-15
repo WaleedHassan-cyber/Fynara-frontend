@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import "./HomeSec.css";
 import DisplayProduct from "./DisplayProduct.jsx";
 import Banner from "./Banner.jsx";
-import Features from "./Features.jsx";
+import Features from "./Features.jsx"
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -45,9 +46,9 @@ const HomeSec = () => {
             <div className="category-overlay">
               <h3 className="category-title">{cat.title}</h3>
               <p className="category-subtitle">{cat.subtitle}</p>
-              <a href={`/products/${cat.title}`} className="shop-now">
+              <Link to={`/products/${cat.title}`} className="shop-now">
                 SHOP NOW
-              </a>
+              </Link>
             </div>
           </div>
         ))}
