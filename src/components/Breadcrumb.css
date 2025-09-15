@@ -1,0 +1,50 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280; /* gray text */
+  font-family: Arial, sans-serif;
+  padding: 35px;
+}
+
+.breadcrumb a.home-link {
+  color: #222222; /* dark text */
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb a.home-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb svg.home-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+}
+
+.breadcrumb .separator {
+  margin: 0 8px;
+  color: #9ca3af; /* lighter gray */
+}
+
+.breadcrumb .current {
+  color: #9ca3af; /* lighter gray */
+}
+.breadcrumb .current:hover {
+  text-decoration: none;
+}
+.breadcrumb .current {
+  pointer-events: none; /* Disable pointer events */
+}
+.breadcrumb .current:hover {
+  text-decoration: none; /* Disable hover effect */
+}
+.breadcrumb .current:focus {
+  outline: none; /* Disable focus outline */
+}
+.breadcrumb .current:active {
+  color: #9ca3af; /* Disable active state */
+}

@@ -1,113 +1,198 @@
-.hero{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
-.hero-mid{
-    width: 100%;
-    height: 90vh;
-    position: relative;
-}
- .hero-mid .contact{          /* ye srf text ko card ke upe lany ke liye ha cntct section ki pic m */
-    padding-right: 22rem;
-    padding-top: 0rem !important;
-    background-color: #222;
-}
-.hero-mid h1{
-    padding-top: 4rem !important;
-}
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    
-}
-.hero-text{
-    position: absolute;
-    top: 55%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width: 100%;
-
-}
-.hero-text h1{
-    font-size: 3rem;
-    font-weight: 800;
-    background: #fff;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-.hero-text p{
-    font-size: 1.3rem;
-    color: #ffffff;
-    padding: 0.5rem 0 2rem 0;
-}
-.hero-text .show{
-    text-decoration: none;
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    font: 1.1rem;
-    font-weight: bold ;
-    letter-spacing: 2px;
-    color:#222;
-
-}
-.hero-text .show:hover{
-    background-color: #01959a;
-    color: #fff;
-}
-.hero-text .hide{
-    display: none;
-}
-@media  screen and (max-width: 555px){
-    .hero-text h1{
-        padding: 10px 20px;
-    }
-    .hero-text p{
-        font-size: 1.1rem;
-        padding: 0 0 2rem 0;
-    }
-    .hero-text .show{
-        padding: .6rem 1.1rem;
-        border-radius: 6px;
-        font: 1.1rem;
-    }
-    .hero-mid .contact{            /* ye srf text ko sai krny k liye ha cntct sec ki picka jo title ha wo */
-        font-size: 3rem;
-        font-weight: 800;
-        background: #fff;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        padding-right: 0;
-    }
-    
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Top Bar */
+.top-bar {
+  background-color: rgba(0, 0, 0, 0.925);
+  padding: 8px 0;
+  font-size: 0.875rem;
+}
+
+.top-message {
+  color: #adabab;
+}
+
+.top-right {
+  display: flex;
+  gap: 12px;
+  font-size: 0.875rem;
+  color: #666;
+  align-items: center;
+}
+
+.hidden-md {
+  display: none;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navicon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Show hidden-md on larger screens */
+@media (min-width: 768px) {
+  .hidden-md {
+    display: inline;
+  }
+}
+
+/* Main Header */
+.main-header {
+  background-color: transparent;
+  /* position: sticky; */
+  border-bottom: 1px solid #ccc;
+  padding: 12px 0;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.logo-primary {
+  color: #000;
+}
+
+.logo-secondary {
+  color: #999;
+  margin-left: 4px;
+}
+
+/* Navigation */
+.nav {
+  display: none;
+  gap: 32px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.nav a:hover {
+  color: #ff0000;
+  transform: scale(1.05);
+}
+
+.shop-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hot {
+  background-color: red;
+  color: white;
+  font-size: 0.625rem;
+  padding: 2px 6px;
+  border-radius: 8px;
+  animation: pulse 1s infinite;
+}
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between buttons */
+}
+
+@media (min-width: 640px) {
+  .header-icons {
+    gap: 16px; /* larger gap for bigger screens */
+  }
+}
+
+.icon-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.icon-button:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 0, 0.1); /* similar to hover:bg-accent/10 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navicon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 640px) {
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Badge styling */
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ff0000; /* accent color */
+  color: white;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .badge {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+}
+
+/* Bounce animation for cart */
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
 
 
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Show nav on larger screens */
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+    align-items: center;
+  }
+}

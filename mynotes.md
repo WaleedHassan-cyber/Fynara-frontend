@@ -20,7 +20,4 @@
 	</div> 
 
     ---------------------------------------------------------------
-
-onClick={() => handleButtonClick('ComponentA')}
-onClick={() => handleButtonClick('ComponentB')}
-onClick={() => handleButtonClick('ComponentC')}
+  

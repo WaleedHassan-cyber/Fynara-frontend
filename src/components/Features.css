@@ -1,0 +1,45 @@
+.features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 40px 60px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.feature-icon {
+  font-size: 36px;
+  color: #e53637; /* Red icon */
+}
+
+.feature-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.feature-desc {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .feature-card {
+    justify-content: center;
+    text-align: center;
+  }
+}

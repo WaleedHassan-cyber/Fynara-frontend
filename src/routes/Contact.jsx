@@ -1,14 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 // import { Card } from "../components/Card";
 import "./contact.css"
-import Footer from "../components/Footer";
 import Section from "../components/Section";
 const Contact = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero
         cName="hero-mid"
         heroImg="https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -28,7 +26,6 @@ const Contact = () => {
        Icon="fa-solid fa-phone"
       /> */}
       <Section/>
-      <Footer/>  
     </>
   );
 };

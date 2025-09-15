@@ -1,52 +1,109 @@
-.section{
-    margin: 2rem 5rem;    
+.category-section {
+  padding: 40px 20px;
 }
-.section1{
-    margin: 0rem 5rem;    
+.category-head {
+  font-size: 35px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  position: relative;
+  /* display: inline-block; */
+  text-align: left;   /* heading ko left align */
 }
-.section1 h1{
-    font-size: 2.2rem;
-    
+
+.category-head::after {
+  content: "";
+  width: 92px;
+  height: 2px;
+  background: red;
+  position: absolute;
+  bottom: -6px;
+  left: 4%;             /* ab underline left se start hogi */
+transform: translateX(-37%);     /* center wala hata diya */
 }
-.section h1{
-    font-size: 2.5rem;
+.category-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
-.btn-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+
+.category-card {
+  position: relative;
+  width: 420px;
+  height: 320px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #eee;
 }
-.btn-group button {
-    background-color: #fff; /* Green background */
-    border: 1px solid #222; 
-    border-radius: 8px;
-    color: #222; /* White text */
-    font-weight: 600;
-    padding: 10px 24px; /* Some padding */
-    cursor: pointer; /* Pointer/hand icon */
-    float: left; /* Float the buttons side by side */    
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: conatin;
+  transition: opacity 0.4s ease;
+  /* padding: 10px; */
 }
-  .btn-group button:not(:last-child) {
-    border-right: none; /* Prevent double borders */
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+
+/* Yeh hamesha image ke upar rahega */
+.category-overlay {
+  position: absolute;
+  /* inset: 0; */
+  top: 20px;   /* left top pe fix */
+  left: 20px;
+  padding: 30px;
+  color: #000;
+  z-index: 2;
+  transition: all 0.4s ease;
 }
-  .btn-group button:not(:first-child) {
-    border-left: none; /* Prevent double borders */
-    border-bottom-left-radius: 0px;
-    border-top-left-radius: 0px;
+
+.category-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
-.btn-group button:hover {
-    background-color: #01959a;
-    color: #fff;
+
+.category-subtitle {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555;
 }
-.btn-group button .act:active{
-    background-color: #01959a;
-}  
-.flexbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+
+.shop-now {
+  font-size: 14px;
+  font-weight: bold;
+  color: transparent; /* hidden by default */
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.4s ease;
+}
+
+.shop-now::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #000;
+  transition: width 0.3s ease;
+}
+
+/* Hover Effects */
+.category-card:hover .category-image {
+  opacity: 0.2;
+}
+
+.category-card:hover .category-overlay {
+  /* background: rgba(89, 115, 255, 0.9); */
+  color: black;
+}
+
+.category-card:hover .shop-now {
+    margin-top: 10px;
+  color: #000;
+}
+
+.category-card:hover .shop-now::after {
+  width: 100%;
 }
