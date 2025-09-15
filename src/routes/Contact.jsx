@@ -7,13 +7,7 @@ const Contact = () => {
   return (
     <>
       {/* <Navbar /> */}
-      <Hero
-        cName="hero-mid"
-        heroImg="https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        title="Contact Us"
-        ctitle="contact"
-        btnClass="hide"
-      />
+      <Hero/>
       
 
       {/* <h1>Easy To Contact Us</h1>
