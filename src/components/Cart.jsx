@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 
 const CartPage = () => {
   const API_URL = import.meta.env.VITE_API_URL;
-  const userId = "68c6c1c53cb69518c20fba94"; // ideally from login/localStorage
+const user = JSON.parse(localStorage.getItem("user:detail"));
+const userId = user?.id;   // optional chaining -> agar user null ho to crash na ho
+
 
   const [products, setProducts] = useState([]);
 
-  // Fetch cart from backend
+  // Fetch cart from backend 
   useEffect(() => {
     const fetchCart = async () => {
       try {

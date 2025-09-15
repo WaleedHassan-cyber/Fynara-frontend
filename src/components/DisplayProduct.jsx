@@ -12,7 +12,7 @@ const DisplayProduct = ({header="NEW PRODUCTS" ,category="",count=5}) => {
   const [loading, setLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   useEffect(() => {
     setLoading(true);
@@ -143,7 +143,7 @@ const DisplayProduct = ({header="NEW PRODUCTS" ,category="",count=5}) => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/api/products");
+        const res = await fetch(`${API_URL}/api/products`);
         const data = await res.json();
         setAllProducts(data);
         setFilteredProducts(data);

@@ -1,4 +1,5 @@
 // cartHelpers.js
+const API_URL = import.meta.env.VITE_API_URL;
 export const addToCart = async ({ userId, product, quantity = 1, selectedColor, selectedSize }) => {
   try {
     const payload = {
@@ -10,7 +11,7 @@ export const addToCart = async ({ userId, product, quantity = 1, selectedColor, 
       price: product.price,
     };
 
-    const res = await fetch("http://localhost:5000/api/cart/add", {
+    const res = await fetch(`${API_URL}/api/cart/add`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),

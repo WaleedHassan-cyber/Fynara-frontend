@@ -15,11 +15,12 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [fadeClass, setFadeClass] = useState("fade-in");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`http://localhost:5000/api/products/${id}`);
+        const res = await fetch(`${API_URL}/api/products/${id}`);
         const data = await res.json();
         setProduct(data);
 
