@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
-import About from "./routes/About";
 import Product from "./routes/Product";
-import Contact from "./routes/Contact";
 import "./App.css";
 import Footer from "./components/Footer.jsx";
 import Hero from "./components/Hero.jsx";
@@ -20,10 +18,7 @@ function App() {
           <Route path="/products/:category" element={<Product />} />
           {/* Dynamic category */}
           <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart/>} />
-
-          <Route path="/about" element={<About />} />
         </Routes>
 
         <Footer />
