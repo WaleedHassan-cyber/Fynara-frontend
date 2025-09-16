@@ -144,6 +144,7 @@ const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 5 }) =
                       ></lord-icon>
                     </button>
                   </div>
+                  
                 </div>
 
                 <h3 className="product-title">{product.productName}</h3>

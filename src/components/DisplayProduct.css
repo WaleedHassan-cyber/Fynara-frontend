@@ -120,13 +120,47 @@
 }
 
 /* Hover icons */
-.icons {
+/* .icons {
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%) translateY(30px);
   display: flex;
   gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+} */
+
+/* .product-card:hover .icons {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+} */
+
+/* Hover icons container */
+/* .icons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  display: flex;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+} */
+
+
+/* ✅ Icon circle (screenshot style) */
+/* Wrapper */
+.icons {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  display: flex;
+  gap: 12px;
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease;
@@ -138,23 +172,41 @@
   pointer-events: auto;
 }
 
+/* Each icon circle */
 .icon {
-  font-size: 15px;
-  display: block;
-  height: 50px;
-  width: 50px;
-  background: #ffffff;
-  text-align: center;
-  border: #e4dddd 0px solid;
+  width: 45px;
+  height: 45px;
+  background: #fff;
   border-radius: 50%;
-  transition: all 0.5s;
+  border: 1px solid #e5e5e5;   /* thin light border */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* Icon inside (Boxicons / FontAwesome) */
+.icon i {
+  font-size: 20px;
+  color: #222;  /* dark black like screenshot */
+  line-height: 1;
+}
+
+/* Hover effect */
 .icon:hover {
   background: #cf3c3c;
-  color: #fff;
-  /* border-color: #d32f2f; */
+  border-color: #cf3c3c;
 }
+
+.icon:hover i {
+  color: #fff;
+}
+.icon:hover lord-icon {
+  filter: invert(100%) brightness(200%); /* makes icon white */
+}
+
+
 
 
 /* SALE badge */
