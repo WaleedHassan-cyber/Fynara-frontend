@@ -6,6 +6,7 @@ import "./Hero.css";
 
 const Hero = () => {
   const userDetail = JSON.parse(localStorage.getItem("user:detail"));
+  const count= userDetail.cartCount;
   const [showAuth, setShowAuth] = useState(false);
   return (
     <header className="hero">
@@ -62,7 +63,7 @@ const Hero = () => {
                 {/* Cart */}
                 <Link to="/cart" className="icon-button">
                   <ShoppingCart className="navicon" />
-                  <span className="badge bounce">2</span>
+                  <span className="badge bounce">{count}</span>
                 </Link>
 
                 {/* Wishlist */}

@@ -55,7 +55,7 @@ const AuthModal = ({ onClose }) => {
     if (!res.ok) {
       throw new Error(data.message || "Something went wrong");
     }
-
+    console.log("Success:", data);
     localStorage.setItem("user:detail", JSON.stringify(data.user || {}));
     if (data.token) {
       localStorage.setItem("user:token", data.token);
