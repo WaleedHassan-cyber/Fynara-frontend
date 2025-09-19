@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Search, ShoppingCart, Heart, Globe, User } from "lucide-react";
+import { Search, ShoppingCart, Heart, Globe, User, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthModal from "./AuthModal";
 import "./Hero.css";
 
 const Hero = () => {
   const userDetail = JSON.parse(localStorage.getItem("user:detail"));
-  
   const [showAuth, setShowAuth] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <header className="hero">
       {/* Top Bar */}
@@ -37,7 +38,7 @@ const Hero = () => {
             <span className="logo-secondary">STORE</span>
           </div>
 
-          {/* Navigation */}
+          {/* Navigation (desktop only) */}
           <nav className="nav">
             <Link to="/">Home</Link>
             <div className="relative">
@@ -49,7 +50,7 @@ const Hero = () => {
             <Link to="#">Features</Link>
             <Link to="#">Blog</Link>
             <Link to="#">About</Link>
-            <Link to="#">Contact</Link>
+            <Link to="/contact">Contact</Link>
           </nav>
 
           {/* Right Side */}
@@ -60,26 +61,20 @@ const Hero = () => {
 
             {userDetail ? (
               <>
-                {/* Cart */}
                 <Link to="/cart" className="icon-button">
                   <ShoppingCart className="navicon" />
                   <span className="badge bounce">2</span>
                 </Link>
-
-                {/* Wishlist */}
                 <button className="icon-button">
                   <Heart className="navicon" />
                   <span className="badge">1</span>
                 </button>
-
-                {/* Profile */}
                 <button className="icon-button">
                   <User className="navicon" />
                 </button>
               </>
             ) : (
               <>
-                {/* Login / Register */}
                 <span onClick={() => setShowAuth(true)} className="auth-link">
                   Login
                 </span>
@@ -89,10 +84,59 @@ const Hero = () => {
                 </span>
               </>
             )}
+
+            {/* Hamburger menu (mobile only) */}
+            <button
+              className="hamburger"
+              onClick={() => setIsSidebarOpen(true)}
+            >
+              <Menu className="navicon" />
+            </button>
           </div>
         </div>
       </div>
-       {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
+
+      {/* Sidebar */}
+      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <div className="sidebar-header">
+          <span className="sidebar-logo">SHOPPII</span>
+          <button className="close-btn" onClick={() => setIsSidebarOpen(false)}>
+            <X size={24} />
+          </button>
+        </div>
+
+        <nav className="sidebar-nav">
+          <Link to="/" onClick={() => setIsSidebarOpen(false)}>Home</Link>
+          <Link to="/products" onClick={() => setIsSidebarOpen(false)}>Shop</Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>Features</Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>Blog</Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>About</Link>
+          <Link to="/contact" onClick={() => setIsSidebarOpen(false)}>Contact</Link>
+        </nav>
+
+        <div className="sidebar-footer">
+          {userDetail ? (
+            <>
+              <Link to="/cart" className="sidebar-link">
+                <ShoppingCart size={18}/> Cart (2)
+              </Link>
+              <Link to="/wishlist" className="sidebar-link">
+                <Heart size={18}/> Wishlist (1)
+              </Link>
+              <Link to="/profile" className="sidebar-link">
+                <User size={18}/> Profile
+              </Link>
+            </>
+          ) : (
+            <div className="sidebar-auth">
+              <span onClick={() => setShowAuth(true)}>Login</span> /{" "}
+              <span onClick={() => setShowAuth(true)}>Register</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </header>
   );
 };

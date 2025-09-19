@@ -1,0 +1,135 @@
+/* ==== CONTACT PAGE ==== */
+.contact-container {
+  padding: 50px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: auto;
+}
+.contact-content {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+/* ==== LEFT SIDE INFO ==== */
+/* ==== LEFT SIDE INFO ==== */
+.contact-info {
+  flex: 1;
+  min-width: 320px;
+  text-align: left;   /* Sab text start se ho */
+}
+
+.contact-info h2 {
+  margin-bottom: 28px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #222;
+  border-left: 4px solid #ff4444;
+  padding-left: 10px;
+  text-align: left;
+}
+
+.contact-info p {
+  margin: 15px 0;
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.6;
+  justify-content: flex-start;  /* icon + text dono left side rahen */
+  text-align: left;             /* text start se align ho */
+}
+
+.contact-info i {
+  color: #ff4444;
+  font-size: 18px;
+  margin-top: 3px;
+  flex-shrink: 0; /* icon compress na ho */
+}
+
+.contact-info strong {
+  display: inline-block;
+  margin-bottom: 3px;
+  font-weight: 600;
+  color: #222;
+  text-align: left;  /* Title bhi start aligned ho */
+}
+.contact-info h3{
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    text-align: left;  /* Title bhi start aligned ho */
+}
+
+/* ==== FORM ==== */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  background: #fafafa;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff4444;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.contact-form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact-form button {
+  background: #ff4444;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #e63939;
+  transform: translateY(-2px);
+}
+
+/* ==== MAP ==== */
+.contact-map {
+  flex: 1;
+  min-width: 350px;
+  height: 480px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+  .contact-map {
+    height: 350px;
+  }
+}

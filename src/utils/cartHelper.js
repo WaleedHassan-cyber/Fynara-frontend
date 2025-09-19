@@ -33,3 +33,20 @@ export const addToCart = async ({ userId, product, quantity = 1, selectedColor, 
     return { success: false, message: err.message };
   }
 };
+export const deleteFromCart = async ({ userId, keepIds }) => {
+  try {
+    const res = await fetch(`${API_URL}/api/cart/delete/${userId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ keepIds }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || "Failed to delete");
+
+    return { success: true, cartItems: data.cartItems };
+  } catch (error) {
+    console.error("Delete cart error:", error);
+    return { success: false, message: error.message };
+  }
+};
