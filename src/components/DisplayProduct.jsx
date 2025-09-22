@@ -4,8 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 const filters = ["All", "Women", "Men", "Kid", "Accessories", "Cosmetics", "Electronics"];
 import { addToCart } from "../utils/cartHelper.js";
 import SuccessModal from "./SuccessModal.jsx";
-
-const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 5 }) => {
+import Loader from "./Loader.jsx";
+const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 8 }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -108,7 +108,7 @@ const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 5 }) =
 
       <div className="product-grid">
         {loading ? (
-          <p>Loading products...</p>
+          <><div className="loader" ><Loader/></div></>
         ) : (
           Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
             filteredProducts.slice(0, visibleCount).map((product) => (

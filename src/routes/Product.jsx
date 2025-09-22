@@ -9,7 +9,7 @@ const Product = () => {
   return (
     <>
       <Breadcrumb crumb={category?`For ${category}`:"Shop"} />
-      <DisplayProduct header={category ? `For ${category}` : "OUR PRODUCTS"} category={category || ""} />
+      <DisplayProduct header={category ? `For ${category}` : "OUR PRODUCTS"} category={category || ""} count={20} />
       <LinksImg />
       <Features />
     </>

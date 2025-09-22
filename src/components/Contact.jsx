@@ -41,7 +41,7 @@ const Contact = () => {
         <div className="contact-map">
           <iframe
             title="Google Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.801748119486!2d-74.096098!3d40.960654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2fbf81e9f2a4d%3A0x3c0d8df7a2b9b1a2!2sSaddle%20River%2C%20NJ%2007458%2C%20USA!5e0!3m2!1sen!2s!4v1694978427196"
+            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1889.740348876729!2d74.40345803653402!3d31.559676335223937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2s!4v1758543728381!5m2!1sen!2s"
             width="100%"
             height="100%"
             allowFullScreen=""
