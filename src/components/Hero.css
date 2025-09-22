@@ -42,6 +42,9 @@
   height: 16px;
 }
 
+.auth-link{
+  cursor: pointer;
+}
 /* Show hidden-md on larger screens */
 @media (min-width: 768px) {
   .hidden-md {
@@ -210,6 +213,9 @@
   }
   .hamburger {
     display: inline-flex;
+  }
+  .header-icons {
+    gap: 4px;
   }
 }
 
