@@ -20,33 +20,20 @@ export const addToCart = async ({ userId, product, quantity = 1, selectedColor, 
 
     const data = await res.json();
     if (!res.ok) throw new Error(data.message || "Failed to add to cart");
-
+    console.log("Add to cart response:", data);
     // ✅ Local storage update karo
     let user = JSON.parse(localStorage.getItem("user:detail"));
     if (user) {
-      user.cartCount = data.cartItems.length; // update cart count
+      user.cartCount = data.cartCount; // update cart count
       localStorage.setItem("user:detail", JSON.stringify(user));
     }
-
+     window.dispatchEvent(new Event("cartUpdated"));
     return { success: true, data };
   } catch (err) {
     return { success: false, message: err.message };
   }
 };
 export const deleteFromCart = async ({ userId, keepIds }) => {
-  try {
-    const res = await fetch(`${API_URL}/api/cart/delete/${userId}`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ keepIds }),
-    });
-
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message || "Failed to delete");
-
-    return { success: true, cartItems: data.cartItems };
-  } catch (error) {
-    console.error("Delete cart error:", error);
-    return { success: false, message: error.message };
-  }
+  
 };
+

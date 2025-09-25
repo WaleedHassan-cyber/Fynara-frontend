@@ -30,7 +30,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.2); /* sirf halki shadow */
+  background: rgba(133, 127, 127, 0.2); /* sirf halki shadow */
 }
 
 

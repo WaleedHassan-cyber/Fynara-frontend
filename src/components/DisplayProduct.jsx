@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "./DisplayProduct.css";
 import { useNavigate, Link } from "react-router-dom";
-const filters = ["All", "Women", "Men", "Kid", "Accessories", "Cosmetics", "Electronics"];
+const filters = [
+  "All",
+  "Women",
+  "Men",
+  "Kid",
+  "Accessories",
+  "Cosmetics",
+  "Electronics",
+];
 import { addToCart } from "../utils/cartHelper.js";
 import SuccessModal from "./SuccessModal.jsx";
 import Loader from "./Loader.jsx";
-const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 8 }) => {
+const DisplayProduct = ({ header = "NEW PRODUCTS", category, count = 8 }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [activeFilter, setActiveFilter] = useState("All");
@@ -44,12 +52,16 @@ const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 8 }) =
 
   useEffect(() => {
     if (category && category !== "All") {
-      setFilteredProducts(allProducts.filter(p => p.type?.toLowerCase() === category.toLowerCase()));
+      setFilteredProducts(
+        allProducts.filter(
+          (p) => p.type?.toLowerCase() === category.toLowerCase()
+        )
+      );
     } else {
       if (activeFilter === "All") {
         setFilteredProducts(allProducts);
       } else {
-        setFilteredProducts(allProducts.filter(p => p.type === activeFilter));
+        setFilteredProducts(allProducts.filter((p) => p.type === activeFilter));
       }
     }
     setVisibleCount(count ? count : 4);
@@ -78,7 +90,12 @@ const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 8 }) =
 
   return (
     <section className="new-product">
-      <h2 className="section-title" style={{ fontSize: header === "RELATED PRODUCTS" ? "30px" : "40px" }}>{header}</h2>
+      <h2
+        className="section-title"
+        style={{ fontSize: header === "RELATED PRODUCTS" ? "30px" : "40px" }}
+      >
+        {header}
+      </h2>
 
       {!category && (
         <div className="filters">
@@ -94,79 +111,91 @@ const DisplayProduct = ({ header = "NEW PRODUCTS", category = "", count = 8 }) =
         </div>
       )}
 
-      <select
-        className="filters-dropdown"
-        value={activeFilter}
-        onChange={(e) => setActiveFilter(e.target.value)}
-      >
-        {filters.map((f) => (
-          <option key={f} value={f}>
-            {f}
-          </option>
-        ))}
-      </select>
+      {!category && (
+        <select
+          className="filters-dropdown"
+          value={activeFilter}
+          onChange={(e) => setActiveFilter(e.target.value)}
+        >
+          {filters.map((f) => (
+            <option key={f} value={f}>
+              {f}
+            </option>
+          ))}
+        </select>
+      )}
 
       <div className="product-grid">
         {loading ? (
-          <><div className="loader" ><Loader/></div></>
-        ) : (
-          Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
-            filteredProducts.slice(0, visibleCount).map((product) => (
-              <div key={product._id} className="product-card">
-                {product.label && <span className="sale-badge">SALE</span>}
+          <>
+            <div className="loade">
+              <Loader />
+            </div>
+          </>
+        ) : Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
+          filteredProducts.slice(0, visibleCount).map((product) => (
+            <div key={product._id} className="product-card">
+              {product.label && <span className="sale-badge">SALE</span>}
 
-                <div className="product-img">
-                  <img src={product.images[0]?.url} alt={product.productName} />
-                  <div className="icons">
-                    <button className="icon" onClick={() => navigate(`/product/${product._id}`)}>
-                      <lord-icon
-                        src="https://cdn.lordicon.com/glremacu.json"
-                        trigger="hover"
-                        stroke="bold"
-                        colors="primary:#000000"
-                        style={{ width: "24px", height: "24px" }}
-                      ></lord-icon>
-                    </button>
-                    <button  className="icon">
-                      <lord-icon
-                        src="https://cdn.lordicon.com/efgqjiqt.json"
-                        trigger="hover"
-                        colors="primary:#000000"
-                        style={{ width: "24px", height: "24px" }}
-                      ></lord-icon>
-                    </button>
-                    <button className="icon" onClick={() => handleQuickAdd(product)}>
-                      <lord-icon
-                        src="https://cdn.lordicon.com/njmquueq.json"
-                        trigger="hover"
-                        colors="primary:#000000"
-                        style={{ width: "24px", height: "24px" }}
-                      ></lord-icon>
-                    </button>
-                  </div>
-                  
-                </div>
-
-                <h3 className="product-title">{product.productName}</h3>
-                <div className="product-price">
-                  <div className="product-rating">★★★★★</div>
-                  <span className="new-price">${product.price}</span>
-                  {product.oldPrice && (
-                    <span className="old-price">${product.oldPrice}</span>
-                  )}
+              <div className="product-img">
+                <img src={product.images[0]?.url} alt={product.productName} />
+                <div className="icons">
+                  <button
+                    className="icon"
+                    onClick={() => navigate(`/product/${product._id}`)}
+                  >
+                    <lord-icon
+                      src="https://cdn.lordicon.com/glremacu.json"
+                      trigger="hover"
+                      stroke="bold"
+                      colors="primary:#000000"
+                      style={{ width: "24px", height: "24px" }}
+                    ></lord-icon>
+                  </button>
+                  <button className="icon">
+                    <lord-icon
+                      src="https://cdn.lordicon.com/efgqjiqt.json"
+                      trigger="hover"
+                      colors="primary:#000000"
+                      style={{ width: "24px", height: "24px" }}
+                    ></lord-icon>
+                  </button>
+                  <button
+                    className="icon"
+                    onClick={() => handleQuickAdd(product)}
+                  >
+                    <lord-icon
+                      src="https://cdn.lordicon.com/njmquueq.json"
+                      trigger="hover"
+                      colors="primary:#000000"
+                      style={{ width: "24px", height: "24px" }}
+                    ></lord-icon>
+                  </button>
                 </div>
               </div>
-            ))
-          ) : (
-            <p>No products found.</p>
-          )
+
+              <h3 className="product-title">{product.productName}</h3>
+              <div className="product-price">
+                <div className="product-rating">★★★★★</div>
+                <span className="new-price">${product.price}</span>
+                {product.oldPrice && (
+                  <span className="old-price">${product.oldPrice}</span>
+                )}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No products found.</p>
         )}
-        {showSuccessModal && <SuccessModal
-          show={showSuccessModal}
-          onClose={() => setShowSuccessModal(false)}
-          productName={selectedProduct?.productName}
-        />}
+        {showSuccessModal && (
+          <SuccessModal
+            show={showSuccessModal}
+            onClose={() => setShowSuccessModal(false)}
+            productName={selectedProduct?.productName}
+          />
+        )}
       </div>
+      {/* <div className="loade" ><Loader/></div> */}
 
       {visibleCount < filteredProducts.length && !loading && (
         <div className="load-more-wrapper">

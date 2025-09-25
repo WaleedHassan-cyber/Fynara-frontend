@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Search, ShoppingCart, Heart, Globe, User, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthModal from "./AuthModal";
 import "./Hero.css";
 
 const Hero = () => {
-  const userDetail = JSON.parse(localStorage.getItem("user:detail"));
+ const [userDetail, setUserDetail] = useState(
+    JSON.parse(localStorage.getItem("user:detail"))
+  );
   const [showAuth, setShowAuth] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(userDetail?.cartCount || 0);
+
+  useEffect(() => {
+  const handleCartUpdate = () => {
+    const updatedUser = JSON.parse(localStorage.getItem("user:detail"));
+    setCartCount(updatedUser?.cartCount || 0);
+  };
+
+  // ✅ Custom event listener
+  window.addEventListener("cartUpdated", handleCartUpdate);
+
+  return () => {
+    window.removeEventListener("cartUpdated", handleCartUpdate);
+  };
+}, []);
 
   return (
     <header className="hero">
@@ -63,7 +80,7 @@ const Hero = () => {
               <>
                 <Link to="/cart" className="icon-button">
                   <ShoppingCart className="navicon" />
-                  <span className="badge bounce">2</span>
+                  <span className="badge bounce">{cartCount}</span>
                 </Link>
                 <button className="icon-button">
                   <Heart className="navicon" />

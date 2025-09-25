@@ -5,8 +5,12 @@ const CartPage = () => {
   const API_URL = import.meta.env.VITE_API_URL;
   const user = JSON.parse(localStorage.getItem("user:detail"));
   const userId = user?.id;
-
   const [products, setProducts] = useState([]);
+  const [orderForm, setOrderForm] = useState({
+    OAddress: "",
+    OTehsil: "",
+    OPostCode: "",
+  });
 
   // Fetch cart
   useEffect(() => {
@@ -20,7 +24,9 @@ const CartPage = () => {
             title: item.productId?.productName || "Unknown Product",
             price: item.price,
             quantity: item.quantity,
-            img: item.productId?.images?.[0]?.url || "https://via.placeholder.com/80",
+            img:
+              item.productId?.images?.[0]?.url ||
+              "https://via.placeholder.com/80",
             selected: true,
             selectedColor: item.selectedColor,
             selectedSize: item.selectedSize,
@@ -82,13 +88,63 @@ const CartPage = () => {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to delete");
-
-      alert("✅ Unselected items deleted successfully!");
-      // frontend state update
+      // ✅ Local storage update karo
+      console.log("Delete from cart response:", data);
+      let user = JSON.parse(localStorage.getItem("user:detail"));
+      if (user) {
+        user.cartCount = data.cartCount; // update cart count from backend
+        localStorage.setItem("user:detail", JSON.stringify(user));
+      }
       setProducts((prev) => prev.filter((p) => keepIds.includes(p.id)));
+      window.dispatchEvent(new Event("cartUpdated"));
+      return {
+        success: true,
+        cartItems: data.cartItems,
+        cartCount: data.cartCount,
+      };
     } catch (error) {
-      console.error("Delete error:", error);
-      alert("❌ " + error.message);
+      console.error("Delete cart error:", error);
+      return { success: false, message: error.message };
+    }
+  };
+  // 🚀 Place Order Handler
+  const handlePlaceOrder = async (e) => {
+    e.preventDefault();
+    if (!userId) return alert("Please login first!");
+
+    // sirf selected products bhejne hain
+    const orderProducts = products
+      .filter((p) => p.selected)
+      .map((p) => ({
+        product: p.id,
+        quantity: p.quantity,
+        selectedSize: p.selectedSize,
+        selectedColor: p.selectedColor,
+      }));
+
+    try {
+      const res = await fetch(`${API_URL}/api/orders/${userId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          products: orderProducts,
+         ...orderForm, 
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to place order");
+
+      console.log("Order placed successfully:", data);
+
+      alert("🎉 Order placed successfully!");
+      // optionally cart empty kar do
+      setProducts([]);
+      localStorage.removeItem("cart");
+      window.dispatchEvent(new Event("cartUpdated"));
+    } catch (error) {
+      console.error("Order error:", error);
+      alert("❌ Failed to place order: " + error.message);
     }
   };
 
@@ -135,14 +191,20 @@ const CartPage = () => {
                 <td>${product.price.toFixed(2)}</td>
                 <td>
                   <div className="cartpage-quantity-control">
-                    <button onClick={() => decrementQuantity(product.id)}>−</button>
+                    <button onClick={() => decrementQuantity(product.id)}>
+                      −
+                    </button>
                     <input
                       type="number"
                       min="1"
                       value={product.quantity}
-                      onChange={(e) => updateQuantity(product.id, e.target.value)}
+                      onChange={(e) =>
+                        updateQuantity(product.id, e.target.value)
+                      }
                     />
-                    <button onClick={() => incrementQuantity(product.id)}>+</button>
+                    <button onClick={() => incrementQuantity(product.id)}>
+                      +
+                    </button>
                   </div>
                 </td>
                 <td>${(product.price * product.quantity).toFixed(2)}</td>
@@ -171,21 +233,45 @@ const CartPage = () => {
         <div className="cartpage-shipping-info">
           <p>There are no shipping methods available.</p>
           <p>
-            Please double check your address, or contact us if you need any help.
+            Please double check your address, or contact us if you need any
+            help.
           </p>
         </div>
         <div className="cartpage-shipping-form">
-          <label>Calculate Shipping</label>
-          <select>
-            <option>Select a country...</option>
-            <option>USA</option>
-            <option>Canada</option>
-            <option>UK</option>
-          </select>
-          <input type="text" placeholder="State / country" />
-          <input type="text" placeholder="Postcode / Zip" />
-          <input type="text" placeholder="Address (Area / House No./ Street)" />
-          <button>Update Totals</button>
+          <form>
+            <label>Calculate Shipping</label>
+            <select>
+              <option>Pakistan</option>
+            </select>
+            <input
+              type="text"
+              name="OAddress"
+              placeholder="Address (Area / House No./ Street)"
+              value={orderForm.OAddress}
+              onChange={(e) =>
+                setOrderForm({ ...orderForm, OAddress: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              name="OTehsil"
+              placeholder="Tehsil (eg. Lahore Cantt)"
+              value={orderForm.OTehsil}
+              onChange={(e) =>
+                setOrderForm({ ...orderForm, OTehsil: e.target.value })
+              }
+            />
+            <input
+              type="text"
+              name="OPostCode"
+              placeholder="Postcode / Zip"
+              value={orderForm.OPostCode}
+              onChange={(e) =>
+                setOrderForm({ ...orderForm, OPostCode: e.target.value })
+              }
+            />
+            <button type="submit">Place Order</button>
+          </form>
         </div>
       </div>
     </div>
