@@ -64,7 +64,7 @@ const Hero = () => {
                 <span className="hot">HOT</span>
               </Link>
             </div>
-            <Link to="#">Features</Link>
+            <Link to="/feature">Features</Link>
             <Link to="#">Blog</Link>
             <Link to="#">About</Link>
             <Link to="/contact">Contact</Link>
