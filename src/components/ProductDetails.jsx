@@ -126,6 +126,9 @@ const ProductDetail = () => {
 
           {/* Right: Product Details */}
           <div className="info-section">
+            <div className="stock" style={{ color: product.inStock ? 'green' : 'red' }}>
+              {product.inStock ? "In Stock" : "Out of Stock"}
+            </div>
             <h1>{product.productName}</h1>
             {product.brand && <p className="brand">Brand: {product.brand}</p>}
 
@@ -150,14 +153,10 @@ const ProductDetail = () => {
               </button>
               <input type="text" value={quantity} readOnly />
               <button onClick={() => setQuantity((q) => q + 1)}>+</button>
-              
-            </div>
-
-            {/* Colors */}
-            {product.colors && (
+              {product.colors && (
               <>
-                <div className="label">Available color:</div>
-                <div className="color-options">
+                <div className="color-op"><strong >Available color:</strong>
+                <div className="color-op">
                   {product.colors.map((color, idx) => (
                     <span
                       key={idx}
@@ -169,14 +168,19 @@ const ProductDetail = () => {
                     />
                   ))}
                 </div>
+                </div>
               </>
-            )}
+            )}  
+            </div>
+
+            {/* Colors */}
+            
 
             {/* Sizes */}
             {product.sizes && (
               <>
-                <div className="label">Available size:</div>
-                <div className="size-options">
+                <div className="quantity-row"><strong>Available size:</strong>
+                <div className="color-op">
                   {product.sizes.map((size) => (
                     <div
                       key={size}
@@ -189,12 +193,11 @@ const ProductDetail = () => {
                     </div>
                   ))}
                 </div>
+                </div>
               </>
             )}
 
-            <div className="stock">
-              {product.inStock ? "In Stock" : "Out of Stock"}
-            </div>
+            
             <button className="add-cart" onClick={handleAddToCart}>
                 ADD TO CART
               </button>

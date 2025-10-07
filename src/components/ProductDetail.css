@@ -128,7 +128,7 @@
 .quantity-row {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 18px;
 }
 .quantity-row input {
@@ -168,6 +168,11 @@ button.add-cart:hover {
   margin-bottom: 8px;
   font-weight: bold;
 }
+.color-op{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 
 .color-options {
   display: flex;
@@ -191,13 +196,7 @@ button.add-cart:hover {
   box-shadow: 0 0 6px 2px #d32f2f;
 }
 
-.size-options {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
+
 .size-box {
   padding: 7px 14px;
   border-radius: 12px;
@@ -211,7 +210,6 @@ button.add-cart:hover {
 }
 
 .stock {
-  margin-top: 18px;
   color: #888;
   font-weight: bold;
 }

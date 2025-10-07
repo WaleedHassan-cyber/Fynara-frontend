@@ -3,6 +3,7 @@ import { FaCarSide } from "react-icons/fa";
 import { FaMoneyBillWave } from "react-icons/fa";
 import { FaLifeRing } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import Breakcrumb from "./Breadcrumb.jsx";
 import "./Features.css";
 
 const features = [
@@ -30,7 +31,9 @@ const features = [
 
 const Features = () => {
   return (
+    
     <section className="features">
+      <Breakcrumb crumb="Features" />
       {features.map((feature, index) => (
         <div className="feature-card" key={index}>
           <div className="feature-icon">{feature.icon}</div>
