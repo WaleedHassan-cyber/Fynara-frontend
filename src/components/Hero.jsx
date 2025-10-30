@@ -68,7 +68,7 @@ const Hero = () => {
         <div className="container">
 
             <img
-              src={Logo1}
+              src={isMobile? MobileLogo : Logo1}
               alt="FYNARA Store Logo"
               className="logo-img"
             />
