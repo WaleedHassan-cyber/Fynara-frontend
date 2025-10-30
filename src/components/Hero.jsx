@@ -1,30 +1,47 @@
-import React, { useState,useEffect } from "react";
-import { Search, ShoppingCart, Heart, Globe, User, Menu, X } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import {
+  Search,
+  ShoppingCart,
+  Heart,
+  Globe,
+  User,
+  Menu,
+  X,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import AuthModal from "./AuthModal";
+import Logo1 from "../assets/Logo2.png";
+import MobileLogo from "../assets/Logo1.png";
 import "./Hero.css";
 
 const Hero = () => {
- const [userDetail, setUserDetail] = useState(
+  const [userDetail, setUserDetail] = useState(
     JSON.parse(localStorage.getItem("user:detail"))
   );
   const [showAuth, setShowAuth] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [cartCount, setCartCount] = useState(userDetail?.cartCount || 0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-  const handleCartUpdate = () => {
-    const updatedUser = JSON.parse(localStorage.getItem("user:detail"));
-    setCartCount(updatedUser?.cartCount || 0);
-  };
+    // ✅ Listen for cart updates
+    const handleCartUpdate = () => {
+      const updatedUser = JSON.parse(localStorage.getItem("user:detail"));
+      setCartCount(updatedUser?.cartCount || 0);
+    };
+    window.addEventListener("cartUpdated", handleCartUpdate);
 
-  // ✅ Custom event listener
-  window.addEventListener("cartUpdated", handleCartUpdate);
+    // ✅ Listen for window resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
 
-  return () => {
-    window.removeEventListener("cartUpdated", handleCartUpdate);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("cartUpdated", handleCartUpdate);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <header className="hero">
@@ -49,12 +66,12 @@ const Hero = () => {
       {/* Main Header */}
       <div className="main-header">
         <div className="container">
-          {/* Logo */}
-          <div className="logo">
-            <span className="logo-primary">SHOPPII</span>
-            <span className="logo-secondary">STORE</span>
-          </div>
 
+            <img
+              src={Logo1}
+              alt="FYNARA Store Logo"
+              className="logo-img"
+            />
           {/* Navigation (desktop only) */}
           <nav className="nav">
             <Link to="/">Home</Link>
@@ -123,25 +140,37 @@ const Hero = () => {
         </div>
 
         <nav className="sidebar-nav">
-          <Link to="/" onClick={() => setIsSidebarOpen(false)}>Home</Link>
-          <Link to="/products" onClick={() => setIsSidebarOpen(false)}>Shop</Link>
-          <Link to="#" onClick={() => setIsSidebarOpen(false)}>Features</Link>
-          <Link to="#" onClick={() => setIsSidebarOpen(false)}>Blog</Link>
-          <Link to="#" onClick={() => setIsSidebarOpen(false)}>About</Link>
-          <Link to="/contact" onClick={() => setIsSidebarOpen(false)}>Contact</Link>
+          <Link to="/" onClick={() => setIsSidebarOpen(false)}>
+            Home
+          </Link>
+          <Link to="/products" onClick={() => setIsSidebarOpen(false)}>
+            Shop
+          </Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>
+            Features
+          </Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>
+            Blog
+          </Link>
+          <Link to="#" onClick={() => setIsSidebarOpen(false)}>
+            About
+          </Link>
+          <Link to="/contact" onClick={() => setIsSidebarOpen(false)}>
+            Contact
+          </Link>
         </nav>
 
         <div className="sidebar-footer">
           {userDetail ? (
             <>
               <Link to="/cart" className="sidebar-link">
-                <ShoppingCart size={18}/> Cart (2)
+                <ShoppingCart size={18} /> Cart (2)
               </Link>
               <Link to="/wishlist" className="sidebar-link">
-                <Heart size={18}/> Wishlist (1)
+                <Heart size={18} /> Wishlist (1)
               </Link>
               <Link to="/profile" className="sidebar-link">
-                <User size={18}/> Profile
+                <User size={18} /> Profile
               </Link>
             </>
           ) : (

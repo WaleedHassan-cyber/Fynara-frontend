@@ -42,7 +42,7 @@
   height: 16px;
 }
 
-.auth-link{
+.auth-link {
   cursor: pointer;
 }
 /* Show hidden-md on larger screens */
@@ -59,18 +59,29 @@
   padding: 12px 0;
 }
 
-.logo {
-  font-size: 1.25rem;
-  font-weight: bold;
+
+
+.logo-img {
+  object-fit: cover;
+  width: 188px;
+  height: 64px;
 }
 
-.logo-primary {
-  color: #000;
-}
-
+/* Hiding logo-secondary as it appears to be part of the image in the screenshot */
 .logo-secondary {
-  color: #999;
-  margin-left: 4px;
+  display: none;
+}
+
+/* NEW: Style for the "STORE" text shown below the main header in the image */
+.store-label {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10px; /* Add some space below the text */
+  font-size: 1rem;
+  color: #666;
+  letter-spacing: 4px; /* Give it a spaced-out look */
+  text-transform: uppercase;
 }
 
 /* ================== Navigation ================== */
@@ -189,14 +200,24 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
 }
 
 /* Pulse animation */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 /* ================== Hamburger ================== */
