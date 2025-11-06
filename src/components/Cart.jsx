@@ -20,7 +20,8 @@ const CartPage = () => {
         const data = await res.json();
         if (data.cartItems) {
           const mapped = data.cartItems.map((item) => ({
-            id: item._id,
+            id: item._id, // ✅ cart item ka id (sirf frontend ke liye)
+            productId: item.productId?._id || item.productId, // ✅ actual product id
             title: item.productId?.productName || "Unknown Product",
             price: item.price,
             quantity: item.quantity,
@@ -31,6 +32,7 @@ const CartPage = () => {
             selectedColor: item.selectedColor,
             selectedSize: item.selectedSize,
           }));
+          console.log("Fetched cart items:", mapped);
           setProducts(mapped);
         }
       } catch (error) {
@@ -107,20 +109,26 @@ const CartPage = () => {
       return { success: false, message: error.message };
     }
   };
+
   // 🚀 Place Order Handler
   const handlePlaceOrder = async (e) => {
     e.preventDefault();
     if (!userId) return alert("Please login first!");
 
     // sirf selected products bhejne hain
-    const orderProducts = products
-      .filter((p) => p.selected)
-      .map((p) => ({
-        product: p.id,
-        quantity: p.quantity,
-        selectedSize: p.selectedSize,
-        selectedColor: p.selectedColor,
-      }));
+   const orderProducts = products
+  .filter((p) => p.selected)
+  .map((p) => ({
+    product: p.productId, // ✅ yahan actual product id
+    quantity: p.quantity,
+    selectedSize: p.selectedSize,
+    selectedColor: p.selectedColor,
+  }));
+
+    // console.log("Order Products:", orderProducts, "Order Form:", orderForm);
+
+    if (orderProducts.length === 0)
+      return alert("Please select at least one product to place an order.");
 
     try {
       const res = await fetch(`${API_URL}/api/orders/${userId}`, {
@@ -128,7 +136,7 @@ const CartPage = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           products: orderProducts,
-         ...orderForm, 
+          ...orderForm,
         }),
       });
 
@@ -270,7 +278,9 @@ const CartPage = () => {
                 setOrderForm({ ...orderForm, OPostCode: e.target.value })
               }
             />
-            <button type="submit">Place Order</button>
+            <button type="submit" onClick={handlePlaceOrder}>
+              Place Order
+            </button>
           </form>
         </div>
       </div>
