@@ -260,3 +260,37 @@
     font-size: 14px;
   }
 }
+.cart-empty-section {
+  text-align: center;
+  color: #fff;
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  margin: 80px auto;
+  max-width: 600px;
+}
+
+.cart-empty-section h2 {
+  font-size: 1.8rem;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.cart-empty-section p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.continue-shopping-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d4af37;
+  color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.continue-shopping-btn:hover {
+  background-color: #c09e2f;
+}
